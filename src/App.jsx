@@ -1,16 +1,17 @@
-import { FormContainer } from "./components/FormContainer";
-import { TaskContainer } from "./components/TaskContainer";
-import { MiContador } from "./components/MiContador";
+import { Route, Routes } from "react-router-dom";
+import { Header } from "./components/common/Header";
+import { HomePage } from "./components/pages/HomePage";
+import { TasksPage } from "./components/pages/TasksPage";
 
 export function App() {
-  const logged = false;
   return (
     <>
+      <Header />
       <main>
-        <MiContador />
-        <FormContainer />
-        <TaskContainer />
-        {logged ? <p>OK</p> : <p>FAIL</p>}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="tareas" element={<TasksPage />} />
+        </Routes>
       </main>
     </>
   );
