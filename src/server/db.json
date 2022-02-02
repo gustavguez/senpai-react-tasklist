@@ -1,0 +1,8 @@
+{
+  "tareas": [
+    { "id": 1, "descripcion": "Estudiar JS" },
+    { "id": 2, "descripcion": "Estudiar CSS" },
+    { "id": 3, "descripcion": "Estudiar HTML" },
+    { "id": 4, "descripcion": "Estudiar JSX" }
+  ]
+}
