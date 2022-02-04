@@ -1,3 +1,5 @@
+import { api } from "../../api/api";
+
 export function HomePage() {
   return (
     <div className="container">

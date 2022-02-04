@@ -5,7 +5,6 @@ export function MiContador() {
 
   const handleClick = () => {
     setContador(contador + 1);
-    console.log(contador);
   };
 
   return (

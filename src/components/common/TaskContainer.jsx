@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { TaskList } from "./TaskList";
+import { api } from "../../api/api";
 
 export function TaskContainer() {
   const [listadoTareas, setListadoTareas] = useState([]);
@@ -7,23 +8,14 @@ export function TaskContainer() {
 
   //Voy a buscar la infor a mi servidor
   useEffect(() => {
-    const tareasPromise = fetch("http://localhost:3000/tareas", {
-      method: "GET",
-    });
-    tareasPromise
-      //Si desean entenderlo luego les paso un link
-      .then((resp) => resp.json())
-      //Ya tengo el listado de tareas
-      .then(function (tareas) {
-        setListadoTareas(tareas);
-      })
-      .catch(() => {
-        //Sucede un error
-        setError("Ocurrió un error!");
-      });
-  }, []);
+    //Fetch / GET a tareas
+    api.get("/tareas").then(function (response) {
+      const tareas = response.data;
 
-  console.log(listadoTareas);
+      //Cambiamos el estado para que react lo re dibuje
+      setListadoTareas(tareas);
+    });
+  }, []);
 
   return (
     <div className="container container-tasks">
